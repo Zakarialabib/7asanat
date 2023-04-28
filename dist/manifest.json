@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "7assanat - حسنات",
+  "version": "1.0.1",
+  "description": "This extension helps you grow good deeds by reminding of sayings prophet Mohamed peace upon him",
+  "action": {
+    "default_title": "7assanat - حسنات",
+    "default_popup": "src/app.html"
+  },
+  "permissions": [
+    "tabs",
+    "notifications",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "use_dynamic_url": true,
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "**/*",
+        "*"
+      ]
+    }
+  ]
+}

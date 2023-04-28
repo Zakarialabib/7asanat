@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "7assanat - حسنات",
+  "author": "zakarilabib@gmail.com",  
+  "version": "1.0.1",
+  "description": "This extension helps you grow good deeds by reminding of sayings prophet Mohamed peace upon him",
+  "action": {
+    "default_title": "7assanat - حسنات",
+    "default_popup": "app.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "notifications",
+    "storage"
+  ]
+}
