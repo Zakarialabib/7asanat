@@ -1,12 +1,14 @@
 <script>
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-  
-	let quoteText = '';
+	import { _ } from "svelte-i18n";
+	import Header from '../../components/Header.svelte';
+	import { readConfig, saveConfig, getRandomNumber } from '../../utils/helpers.js';
 
-	let quotesPerDay;
+	let hadithText = '';
+
+	let hadithPerDay;
   
-	let quotesOfTheDay = [
+	let hadithOfTheDay = [
 	  'The best among you are those who have the best manners and character.',
 	  'Whoever does not show mercy to others, Allah will not show mercy to him.',
 	  'The believer is not one who eats his fill while his neighbor is hungry.',
@@ -15,30 +17,29 @@
 	  'The most beloved of people to Allah are those who are most beneficial to others.'
 	];
   
-	function hideQuote() {
-  		quotesPerDay--;
- 	 	quoteText = quotesOfTheDay[Math.floor(Math.random() * quotesOfTheDay.length)];
- 	 	localStorage.setItem('userConfig', JSON.stringify({ quotesPerDay }));
+	function hideHadith() {
+		hadithPerDay--;
+		hadithText = hadithOfTheDay[getRandomNumber(0, hadithOfTheDay.length - 1)];
+		saveConfig({ hadithPerDay });
 	}
-  
-	// Update the quote text and number of quotes left on component mount
+
 	onMount(() => {
-	  quoteText = quotesOfTheDay[Math.floor(Math.random() * quotesOfTheDay.length)];
-	  const userConfig = JSON.parse(localStorage.getItem('userConfig'));
-	  if (userConfig) {
-			quotesPerDay = userConfig.quotesPerDay;
-      }
-	});
+	hadithText = hadithOfTheDay[getRandomNumber(0, hadithOfTheDay.length - 1)];
+	const userConfig = readConfig();
+		if (userConfig) {
+		hadithPerDay = userConfig.hadithPerDay;
+    }
+  });
   </script>
   
   <div class="flex flex-col justify-center items-center">
-	<h2 class="text-xl text-center font-medium mt-4">Daily Dikr</h2>
-	{#if quotesPerDay > 0}
+	<Header title="{$_('hadith.daily_hadith')}" />
+	{#if hadithPerDay > 0}
 	  <div class="w-full max-w-3xl px-4 py-6 text-center">
-		<p class="text-lg font-medium mb-4 border p-4">{quoteText}</p>
-		<div class="flex justify-between items-center text-sm font-medium text-white">
-		  <p>{quotesPerDay} quotes left for today</p>
-		  <button class="text-yellow-400 hover:text-yellow-500 transition-colors duration-300" on:click={hideQuote}>
+		<p class="text-lg font-medium mb-4 border p-4">{hadithText}</p>
+		<div class="flex justify-between items-center text-sm font-medium">
+		  <p>{hadithPerDay} {$_('hadith.hadith_left_for_today')}</p>
+		  <button class="text-yellow-400 hover:text-yellow-500 transition-colors duration-300" on:click={hideHadith}>
 			<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 			class="w-5 h-5" fill="currentColor"  viewBox="0 0 64 64" xml:space="preserve">
 			<path fill-rule="evenodd" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
@@ -51,6 +52,6 @@
 		</div>
 	  </div>
 	{:else}
-	  <p class="text-lg font-medium text-white py-5">All quotes for today have been completed!</p>
+	  <p class="text-lg font-medium text-white py-5">{$_('all_hadith_for_today_have_been_completed')}!</p>
 	{/if}
   </div>

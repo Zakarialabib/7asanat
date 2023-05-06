@@ -1,39 +1,37 @@
-<!-- +layout.svelte -->
+
+<!-- +page.svelte -->
 <script>
 	import { onMount } from 'svelte';
 	import Intro from '../components/Intro.svelte';
-	import Login from '../components/Login.svelte';
-	import Dashboard from '../components/Dashboard.svelte';
-	import Quote from '../components/Quote.svelte';
-	import Config from '../components/Config.svelte';
+	import { readConfig } from '../utils/helpers.js';
+	import { goto } from '$app/navigation';
+	import { _ } from "svelte-i18n";
+	import { BarLoader } from 'svelte-loading-spinners';
 
-	let currentStep = 0;
-	
-	onMount(() => {
-		const visitedBefore = localStorage.getItem('visitedBefore');
-		if (visitedBefore) {
-			currentStep = 2;
-		}
-	});
+	let isLoading = true;
 
-	function handleNextStep() {
-		currentStep++;
+	const userConfig = readConfig();
+	if (userConfig) {
+		goto('/hadith');
+	} else {
+		onMount(async () => {
+    		isLoading = false;
+		});
 	}
 
-	function handleLoginSuccess() { 
-		currentStep = 2;
-		localStorage.setItem('visitedBefore', true);
-	}
 </script>
+  
+<main>    
 
-<main>
-	<Quote />
-	<Config />
-	{#if currentStep === 0}
-	<Intro />
-	{:else if currentStep === 1}
-		<Login onSuccess={handleLoginSuccess} />
-	{:else if currentStep === 2}
-		<Dashboard />
+	
+
+  {#if isLoading}
+  <div class="flex justify-center my-10">
+  		<BarLoader size="100" color="#FF3E00" unit="px" duration="1s" />
+	</div>
+  	<p class="text-center">{$_('layout.loading')}</p>
+	{:else}
+		<Intro />
 	{/if}
+
 </main>
