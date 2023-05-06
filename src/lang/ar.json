@@ -1,0 +1,39 @@
+{
+    "header": {
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "contact": "اتصل بنا"
+    },
+    "footer": {
+      "copyright": "حقوق النشر",
+      "about": "من نحن",
+      "contact": "اتصل بنا"
+    },
+    "layout": {
+      "loading" : "تحميل"
+    },
+    "hadith": {
+      "daily_hadith": "احاديث يومية",
+      "hadith_left_for_today": "احاديث اليوم",
+      "all_hadith_for_today_have_been_completed": "لقد انهيت الاحاديث اليومية"
+    },
+    "home": {
+      "title": "7asanat",
+      "already_have_an_account": "Already have an account ",
+      "continue_without_login": "Continue without login",
+      "intro": "This extension helps you grow good deeds by reminding you of sayings of Prophet Mohamed peace be upon him"
+    },
+    "config": {
+      "configuration": "اعدادات",
+      "name": "الاسم",
+      "numbers_of_hadith_per_day": "عدد الاحاديث في اليوم",
+      "username": "الاسم"
+    },
+    "menu": {
+      "configuration": "اعدادات",
+      "hadith": "احاديث",
+      "login": "دخول",
+      "register": "تسجسل",
+      "account": "حساب"
+    }
+  }
