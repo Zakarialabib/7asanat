@@ -8,11 +8,9 @@
     "default_title": "7assanat - حسنات",
     "default_popup": "app.html"
   },
-  "background": {
-    "service_worker": "background.js"
-  },
   "permissions": [
     "notifications",
     "storage"
-  ]
+  ],
+  "host_permissions": ["<all_urls>"]
 }
