@@ -7,6 +7,27 @@ This browser extension reminds the user of Prophet peace upon him sayings at tim
 * Supports multiple languages, Version 1 will suppot English & Arabic with plans to add more gradually.
 
 
+## ScreenShot
+
+### Hadith Section
+
+| English | Arabic |
+| --- | --- |
+| ![English Hadith](screens/hadith-en.png) | ![Arabic Hadith](screens/hadith-ar.png) |
+
+### Empty Hadith Section
+
+| English | Arabic |
+| --- | --- |
+| ![English Empty Hadith](screens/empty-hadith-en.png) | ![Arabic Empty Hadith](screens/empty-hadith-ar.png) |
+
+### Config Section
+
+| English | Arabic |
+| --- | --- |
+| ![English Config](screens/config-en.png) | ![Arabic Config](screens/config-ar.png) |
+
+
 ## Contributing
 
 We would love to see your contributions to this project! If you have any ideas for features or improvements, please feel free to open an issue or pull request.
