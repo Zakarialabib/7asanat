@@ -18,10 +18,10 @@
       "all_hadith_for_today_have_been_completed": "لقد انهيت الاحاديث اليومية"
     },
     "home": {
-      "title": "7asanat",
-      "already_have_an_account": "Already have an account ",
-      "continue_without_login": "Continue without login",
-      "intro": "This extension helps you grow good deeds by reminding you of sayings of Prophet Mohamed peace be upon him"
+      "title": "حسنات",
+      "already_have_an_account": "هل لديك حساب",
+      "continue_without_login": "الدخول بدون حساب",
+      "intro": "يساعدك هذا البرنامج على تنمية الحسنات بتذكيرك بأحاديث الرسول صلى الله عليه وسلم"
     },
     "config": {
       "configuration": "اعدادات",
@@ -33,7 +33,7 @@
       "configuration": "اعدادات",
       "hadith": "احاديث",
       "login": "دخول",
-      "register": "تسجسل",
+      "register": "تسجيل",
       "account": "حساب"
     }
   }

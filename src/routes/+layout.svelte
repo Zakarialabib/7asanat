@@ -3,12 +3,12 @@
 	import "../app.css";
 	import en from '../lang/en.json';
   	import ar from '../lang/ar.json';
-
 	import {
 	init,
 	dictionary, 
 	getLocaleFromNavigator,
 	locale,
+	waitLocale,
 	_
 	} from "svelte-i18n";
   
@@ -36,6 +36,7 @@
       lang = 'en';
 	  document.querySelector('body').setAttribute('dir', 'en' ? 'ltr' : 'rtl');
     }
+	
 }
 
 </script>
@@ -45,19 +46,18 @@
 	<slot />
 </main>
 
-<footer class="space-y-4 py-4">
+<footer class="flex justify-between px-5 bg-gray-100 py-2 mt-2">
 	<p class="text-center cursor-pointer">{$_('footer.copyright')} © 2023 
 	  <a href="https://www.github.com/zakarialabib" class="underline">{title}.</a>
 	</p>
-	<div class="text-center bg-shamrock-300 text-black shadow-xl border border-shamrock-800 mx-24 text-md">
-	<button on:click={switchLanguage}>
+
+	<button class="float-left text-center bg-gradient-to-r from-shamrock-300 to-shamrock-600 px-2 text-white font-bold" on:click={switchLanguage}>
 		{#if lang === 'en'}
-		  Switch to Arabic
+		  العربية
 		{:else}
-		  تبديل الى اللغة الإنجليزية
+		   English
 		{/if}
 	  </button>
-	</div>
 </footer>
 </div>
 
